@@ -63,12 +63,18 @@ TaskFlow/
 │           └── kotlin/com/alim/taskflow/
 │               ├── core/           # Navigation, themes, components
 │               ├── features/       # Feature modules (screens)
-│               └── di/            # Dependency injection
+│               └── di/             # Dependency injection
 ├── iosApp/             # iOS UI (SwiftUI)
 │   └── iosApp/
-│       ├── TaskListView.swift
-│       ├── AddTaskView.swift
-│       └── TaskDetailView.swift
+│       ├── AddTask/                        # Add task feature
+│       ├── EditTask/                       # Edit task feature
+│       ├── TaskList/                       # Task list feature
+│       ├── TaskDetails/                    # Task details feature
+│       ├── Splash/                         # Splash screen
+│       ├── Core/                           # Core utilities/helpers
+│       ├── ContentView.swift
+│       ├── iOSApp.swift
+│       └── Info.plist
 ├── shared/             # Shared business logic (KMP)
 │   └── src/
 │       ├── commonMain/    # Shared code
@@ -76,10 +82,10 @@ TaskFlow/
 │       │       ├── data/          # Repository implementations, DAOs
 │       │       ├── domain/        # Models, use cases, repository interfaces
 │       │       ├── presentation/  # ViewModels
-│       │       └── di/           # Dependency injection modules
+│       │       └── di/            # Dependency injection modules
 │       ├── androidMain/  # Android-specific implementations
 │       └── iosMain/      # iOS-specific implementations
-└── gradle/             # Gradle configuration
+└── gradle/               # Gradle configuration
 ```
 
 ### Clean Architecture Layers

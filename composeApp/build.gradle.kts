@@ -33,22 +33,25 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            implementation(projects.shared)
-
+            // Icons
             implementation(libs.androidx.material.icons.extended)
 
-            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
+            // Date Time
+            implementation(libs.kotlinx.datetime)
 
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+            // Serializer
+            implementation(libs.kotlinx.serialization.json)
 
             // Navigation
-//            implementation(libs.navigation.compose)
             implementation(libs.androidx.navigation3.runtime)
             implementation(libs.androidx.navigation3.ui)
 
             // Koin for Android
-            implementation("io.insert-koin:koin-android:4.1.1")
-            implementation("io.insert-koin:koin-androidx-compose:4.1.1")
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+
+            // Shared Library
+            implementation(projects.shared)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

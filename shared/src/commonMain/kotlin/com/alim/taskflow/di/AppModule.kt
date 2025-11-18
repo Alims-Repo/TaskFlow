@@ -34,8 +34,3 @@ val useCaseModule = module {
     factory { FilterTasksUseCase(get()) }
     factory { GetTaskStatisticsUseCase(get()) }
 }
-
-val viewModel = module {
-    single { TaskListViewModel(get(), get(), get(), get(), get(), get(), get()) }
-    single { TaskDetailViewModel(get()) }
-}

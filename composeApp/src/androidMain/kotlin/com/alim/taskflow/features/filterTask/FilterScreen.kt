@@ -71,6 +71,7 @@ import com.alim.taskflow.features.filterTask.components.FilterToggleItem
 import com.alim.taskflow.features.filterTask.utils.getSortOptionDisplayName
 import com.alim.taskflow.features.filterTask.utils.getSortOptionIcon
 import com.alim.taskflow.presentation.TaskListViewModel
+import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 
 class FilterScreen : ActivityScreen<AppScreens.FilterTask>() {
@@ -80,7 +81,7 @@ class FilterScreen : ActivityScreen<AppScreens.FilterTask>() {
         navKey: AppScreens.FilterTask,
         navController: NavController
     ) {
-        val viewModel: TaskListViewModel = koinInject()
+        val viewModel: TaskListViewModel = koinViewModel()
 
         var selectedSortOption by remember { mutableStateOf(SortOption.DATE_CREATED_DESC) }
         var selectedStatuses by remember { mutableStateOf(setOf<TaskStatus>()) }

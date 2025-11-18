@@ -1,5 +1,7 @@
 package com.alim.taskflow.presentation
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.alim.taskflow.domain.usecase.GetTaskByIdUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -14,8 +16,7 @@ import kotlinx.coroutines.launch
  */
 class TaskDetailViewModel(
     private val getTaskByIdUseCase: GetTaskByIdUseCase
-) {
-    private val viewModelScope = CoroutineScope(Dispatchers.Main + Job())
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow<TaskDetailUiState>(TaskDetailUiState.Loading)
     val uiState: StateFlow<TaskDetailUiState> = _uiState.asStateFlow()
@@ -35,9 +36,5 @@ class TaskDetailViewModel(
                     _uiState.value = TaskDetailUiState.Error(error.message ?: "Failed to load task")
                 }
         }
-    }
-
-    fun onCleared() {
-        viewModelScope.coroutineContext[Job]?.cancel()
     }
 }

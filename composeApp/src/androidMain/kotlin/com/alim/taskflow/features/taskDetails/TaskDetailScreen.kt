@@ -65,6 +65,7 @@ import com.alim.taskflow.presentation.TaskListUiState
 import com.alim.taskflow.presentation.TaskListViewModel
 import com.alim.taskflow.core.components.PriorityBadge
 import com.alim.taskflow.core.components.StatusBadge
+import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 
 class TaskDetailScreen : ActivityScreen<AppScreens.TaskDetails>() {
@@ -75,7 +76,7 @@ class TaskDetailScreen : ActivityScreen<AppScreens.TaskDetails>() {
         navKey: AppScreens.TaskDetails,
         navController: NavController
     ) {
-        val viewModel: TaskListViewModel = koinInject()
+        val viewModel: TaskListViewModel = koinViewModel()
         val uiState by viewModel.uiState.collectAsState()
         var showDeleteDialog by remember { mutableStateOf(false) }
 

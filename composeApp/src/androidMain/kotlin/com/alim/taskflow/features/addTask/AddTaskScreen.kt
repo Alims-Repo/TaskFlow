@@ -68,6 +68,7 @@ import com.alim.taskflow.features.addTask.components.PrioritySelectionButton
 import com.alim.taskflow.features.addTask.components.StatusSelectionButton
 import com.alim.taskflow.features.taskDetails.components.formatDateFromMillis
 import com.alim.taskflow.presentation.TaskListViewModel
+import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 import kotlin.text.ifEmpty
 
@@ -79,7 +80,7 @@ class AddTaskScreen : ActivityScreen<AppScreens.AddTask>() {
         navKey: AppScreens.AddTask,
         navController: NavController
     ) {
-        val viewModel: TaskListViewModel = koinInject()
+        val viewModel: TaskListViewModel = koinViewModel()
 
         var title by remember { mutableStateOf("") }
         var description by remember { mutableStateOf("") }

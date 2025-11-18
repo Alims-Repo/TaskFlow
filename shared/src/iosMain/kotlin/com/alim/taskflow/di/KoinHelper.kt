@@ -20,22 +20,10 @@ class KoinHelper : KoinComponent {
         fun ensureKoinStarted() {
             if (!isInitialized) {
                 try {
-                    // Try to start Koin
                     initKoin()
-//                    startKoin {
-//                        modules(
-//                            platformModule(),
-//                            databaseModule(),
-//                            repositoryModule,
-//                            useCaseModule
-//                        )
-//                    }
-
                     isInitialized = true
                     println("✅ Koin initialized successfully for iOS")
                 } catch (e: Exception) {
-                    // If Koin is already started, this will throw an exception
-                    // Check if it's because Koin is already started
                     if (e.message?.contains("A Koin Application has already been started") == true) {
                         println("ℹ️ Koin already initialized")
                         isInitialized = true

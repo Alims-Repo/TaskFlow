@@ -74,7 +74,7 @@ class SplashScreen : ActivityScreen<AppScreens.Splash>() {
             // Navigate after delay
             delay(2000)
 
-            navController.navigate(AppScreens.Main)
+            navController.navigate(AppScreens.Main, true)
         }
 
         Box(

@@ -1,5 +1,7 @@
 package com.alim.taskflow.presentation
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.alim.taskflow.domain.model.FilterOptions
 import com.alim.taskflow.domain.model.Priority
 import com.alim.taskflow.domain.model.SortOption
@@ -34,8 +36,7 @@ class TaskListViewModel(
     private val searchTasksUseCase: SearchTasksUseCase,
     private val filterTasksUseCase: FilterTasksUseCase,
     private val getTaskStatisticsUseCase: GetTaskStatisticsUseCase
-) {
-    private val viewModelScope = CoroutineScope(Dispatchers.Main + Job())
+) : ViewModel() {
 
     // State
     private val _uiState = MutableStateFlow<TaskListUiState>(TaskListUiState.Loading)
@@ -189,9 +190,5 @@ class TaskListViewModel(
                     _uiState.value = TaskListUiState.Error(error.message ?: "Failed to delete task")
                 }
         }
-    }
-
-    fun onCleared() {
-        viewModelScope.coroutineContext[Job]?.cancel()
     }
 }

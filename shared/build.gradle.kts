@@ -32,15 +32,15 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
+            implementation(libs.kotlinx.serialization.json)
+            implementation(libs.kotlinx.datetime)
+            implementation(libs.koin.core)
 
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-
-            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
-
-            implementation("io.insert-koin:koin-core:4.1.1")
+            implementation(libs.androidx.lifecycle.viewmodelCompose)
+            implementation(libs.androidx.lifecycle.runtimeCompose)
         }
         androidMain.dependencies {
-            implementation("io.insert-koin:koin-android:4.1.1")
+            implementation(libs.koin.android)
         }
         iosMain.dependencies {
 

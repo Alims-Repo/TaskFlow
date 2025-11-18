@@ -73,6 +73,7 @@ import com.alim.taskflow.presentation.TaskListUiState
 import com.alim.taskflow.presentation.TaskListViewModel
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 import kotlin.text.ifEmpty
 
@@ -84,7 +85,7 @@ class EditTaskScreen : ActivityScreen<AppScreens.EditTask>() {
         navKey: AppScreens.EditTask,
         navController: NavController
     ) {
-        val viewModel: TaskListViewModel = koinInject()
+        val viewModel: TaskListViewModel = koinViewModel()
 
         val uiState by viewModel.uiState.collectAsState()
 

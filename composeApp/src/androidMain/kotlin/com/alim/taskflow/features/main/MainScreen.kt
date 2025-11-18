@@ -45,6 +45,7 @@ import com.alim.taskflow.core.components.ErrorState
 import com.alim.taskflow.core.components.LoadingState
 import com.alim.taskflow.core.components.StatisticsCard
 import com.alim.taskflow.core.components.TaskCard
+import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 
 class MainScreen : ActivityScreen<AppScreens.Main>() {
@@ -56,7 +57,7 @@ class MainScreen : ActivityScreen<AppScreens.Main>() {
         navController: NavController
     ) {
 
-        val viewModel: TaskListViewModel = koinInject()
+        val viewModel: TaskListViewModel = koinViewModel()
 
         val uiState by viewModel.uiState.collectAsState()
         val statistics by viewModel.statistics.collectAsState()
